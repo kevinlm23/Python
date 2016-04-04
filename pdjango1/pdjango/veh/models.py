@@ -1,8 +1,8 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 
-class vhc_brand (models.Model):
+class Vhc_brand (models.Model):
     name = models.CharField(max_length=45)
     is_active = models.IntegerField(max_length=45)
     description = models.CharField(max_length=255)
@@ -15,7 +15,7 @@ class vhc_brand (models.Model):
     def __unicode__(self):
         return self.name
 
-class vhc_bodywork (models.Model):
+class Vhc_bodywork (models.Model):
     name = models.CharField(max_length=60)
     is_active = models.IntegerField(max_length=45)
     description = models.CharField(max_length=255)
@@ -28,7 +28,7 @@ class vhc_bodywork (models.Model):
     def __unicode__(self):
         return self.name
 
-class vhc_type (models.Model):
+class Vhc_type (models.Model):
     name = models.CharField(max_length=45)
     is_active = models.IntegerField(max_length=45)
     description = models.CharField(max_length=255)
@@ -41,7 +41,7 @@ class vhc_type (models.Model):
     def __unicode__(self):
         return self.name
 
-class vhc_model (models.Model):
+class Vhc_model (models.Model):
     name = models.CharField(max_length=45)
     is_active = models.IntegerField(max_length=45)
     description = models.CharField(max_length=255)
@@ -50,15 +50,14 @@ class vhc_model (models.Model):
     update_at = models.CharField(max_length=45)
     create_by = models.CharField(max_length=45)
     update_by = models.CharField(max_length=45)
-    vhc_type = models.ForeignKey(vhc_type)
-    vhc_brand = models.ForeignKey(vhc_brand)
-    vhc_bodywork = models.ForeignKey(vhc_bodywork)
+    vhc_type = models.ForeignKey(Vhc_type)
+    vhc_brand = models.ForeignKey(Vhc_brand)
+    vhc_bodywork = models.ForeignKey(Vhc_bodywork)
 
     def __unicode__(self):
         return self.name
 
-class vhc_line (models.Model):
-    id = models.CharField(primary_key=True,max_length=10)
+class Vhc_line (models.Model):
     name = models.CharField(max_length=60)
     state_code = models.CharField(max_length=6)
     is_active = models.IntegerField(max_length=45)
@@ -67,12 +66,12 @@ class vhc_line (models.Model):
     update_at = models.CharField(max_length=45)
     create_by = models.CharField(max_length=45)
     update_by = models.CharField(max_length=45)
-    vhc_model_id = models.ForeignKey(vhc_model)
+    vhc_model = models.ForeignKey(Vhc_model)
     
     def __unicode__(self):
         return self.name
     
-class vhc_service (models.Model):
+class Vhc_service (models.Model):
     name = models.CharField(max_length=45)
     is_active = models.IntegerField(max_length=45)
     description = models.CharField(max_length=255)
@@ -84,14 +83,14 @@ class vhc_service (models.Model):
     def __unicode__(self):
         return self.name
 
-class vhc_color (models.Model):
+class Vhc_color (models.Model):
     name = models.CharField(max_length=90)
     is_active = models.IntegerField(max_length=20)
     description = models.CharField(max_length=255)
     hex_code = models.CharField(max_length=6)
     parent_id = models.IntegerField(max_length=20)
     manufacturer_code = models.CharField(max_length=45)
-    vhc_model_id = models.ForeignKey(vhc_model)
+    vhc_model = models.ForeignKey(Vhc_model)
     create_at = models.CharField(max_length=45)
     update_at = models.CharField(max_length=45)
     create_by = models.CharField(max_length=45)
@@ -112,12 +111,12 @@ class Vehicle (models.Model):
     update_at = models.CharField(max_length=45)
     create_by = models.CharField(max_length=45)
     update_by = models.CharField(max_length=45)
-    vhc_service_id = models.ForeignKey(vhc_service)
-    vhc_color_id = models.ForeignKey(vhc_color)
-    vhc_line_id = models.ForeignKey(vhc_line)
     carplate_city = models.CharField(max_length=30)
     imp_mnt_city = models.CharField(max_length=30)
-    
+    vhc_service = models.ForeignKey(Vhc_service)
+    vhc_color = models.ForeignKey(Vhc_color)
+    vhc_line = models.ForeignKey(Vhc_line)
+        
     def __unicode__(self):
         return self.motor_code
 
