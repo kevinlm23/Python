@@ -1,24 +1,43 @@
 <!doctype html>
 <html>
 	<head>
+	<meta charset = "UTF-8">
+	<title> PYTHON TEST </title>
 	</head>
 	<body>
-		<div id = "content"
-			<header>
-				<h1> Data Base</h1>
-				<h2> Vehicles Data Base <h2>
-			</header>
-			<section>
+		<header>
+			<CENTER> <h1> PYTHON TEST </h1> </CENTER>
+			<HR align="CENTER" size="2" width="400" color="Red" noshade>
+			<h2> <I> Vehicles Data Base </I> <h2>
+		</header>
+		<div>
+					
+			<TABLE BORDER = 1 WIDTH = 500>
+				<h3> {{Vehicle.vehicles}} </h3>
+					<thead>
+						<tr>
+							<th>model_year</th>
+							<th>motor_code</th>
+							<th>serial_code</th>
+							<th>carplate_code</th>
+							<th>imp_mnf_num</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{Vehicle.model_year}}</td>
+							<td>{{Vehicle.motor_code}}</td>
+							<td>{{Vehicle.serial_code}}</td>
+							<td>{{Vehicle.carplate_code}}</td>
+							<td>{{Vehicle.imp_mnf_num}}</td>
+						</tr>
+					</tbody>
+				</TABLE>
+			
 				
-				<article>
-					<h3> Table Vehicles </he3>
-					<time>{{vehicle.imp_mnf_date}}</time>
-					<p>Contenido de la Base de Datos</p>
-				</article>
-				
-			</section>
-			<footer>
-				(c) 2016 Kevin Londoño
-			</footer>
+		</div>
+		<footer>
+			(c) 2016 Kevin Londono
+		</footer>
 	</body>
 </html>

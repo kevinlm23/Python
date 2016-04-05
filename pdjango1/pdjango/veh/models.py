@@ -106,7 +106,7 @@ class Vehicle (models.Model):
     serial_code = models.CharField(max_length=30)
     carplate_code = models.CharField(max_length=10)
     imp_mnf_num = models.CharField(max_length=45)
-    imp_mnf_date = models.DateTimeField(auto_now_add=True)
+    imp_mnf_date = models.DateTimeField('Fecha')
     create_at = models.CharField(max_length=45)
     update_at = models.CharField(max_length=45)
     create_by = models.CharField(max_length=45)

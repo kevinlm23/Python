@@ -13,10 +13,11 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
+    ##    url(r'^veh/', include ('pdjango.urls')),
+##    url(r'^admin/', include(admin.site.urls)),
 )
 
-##urlpatterns = patterns('veh.views',
-##                       (r"","main"),
+urlpatterns = patterns('veh.views',
+                       (r"","main"),
     
-##    )
+    )
